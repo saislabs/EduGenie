@@ -1,0 +1,1117 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduGenie — AI-Powered Personalized Learning Assistant</title>
+  <meta name="description" content="Production-level AI educational companion for Q&A, concept explanations, adaptive quizzes, summarization, and personalized learning roadmaps.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <!-- App Container -->
+  <div class="app-layout">
+    
+    <!-- Mobile Header Bar -->
+    <header class="mobile-header">
+      <button id="mobileNavToggle" class="icon-btn" aria-label="Toggle navigation menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+      <div class="brand-mini">
+        <div class="brand-gem-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+        </div>
+        <span class="brand-text">EduGenie</span>
+      </div>
+      <button id="mobileThemeToggle" class="icon-btn" aria-label="Toggle color theme">
+        <svg class="theme-icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        <svg class="theme-icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+    </header>
+
+    <!-- Sidebar Overlay for mobile -->
+    <div id="sidebarOverlay" class="sidebar-overlay"></div>
+
+    <!-- LEFT SIDEBAR -->
+    <aside id="appSidebar" class="sidebar">
+      <div class="sidebar-header">
+        <div class="brand">
+          <div class="brand-gem-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <div class="brand-info">
+            <span class="brand-title">EduGenie</span>
+            <span class="brand-subtitle">AI Learning Assistant</span>
+          </div>
+        </div>
+        <button id="sidebarCloseBtn" class="icon-btn mobile-only" aria-label="Close sidebar">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Main Navigation">
+        <div class="nav-group-label">Core Learning</div>
+        <button class="nav-item active" data-view="dashboard">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-view="qa">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          <span>Ask Question</span>
+        </button>
+        <button class="nav-item" data-view="explain">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <span>Explain Concept</span>
+        </button>
+        <button class="nav-item" data-view="quiz">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <span>Quiz Generator</span>
+        </button>
+        <button class="nav-item" data-view="summarize">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          <span>Summarize Notes</span>
+        </button>
+        <button class="nav-item" data-view="learning">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+          <span>Learning Path</span>
+        </button>
+
+        <div class="nav-group-label">Tracking & Records</div>
+        <button class="nav-item" data-view="history">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>Activity History</span>
+        </button>
+        <button class="nav-item" data-view="progress">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+          <span>Progress & Analytics</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="user-profile-badge">
+          <div class="avatar-circle">EG</div>
+          <div class="user-meta">
+            <span class="user-name">Scholar Mode</span>
+            <span class="user-role">Student Edition</span>
+          </div>
+        </div>
+        <div class="footer-actions">
+          <button id="themeToggleBtn" class="icon-btn-round" title="Toggle Theme (Light/Dark/System)" aria-label="Toggle Theme">
+            <svg class="theme-icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+            <svg class="theme-icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          </button>
+          <button id="openSettingsBtn" class="icon-btn-round" title="Settings & System Health" aria-label="Settings">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- MAIN VIEW AREA -->
+    <main class="main-viewport">
+      
+      <!-- Top Bar / Header -->
+      <header class="top-nav-bar">
+        <div class="view-title-wrap">
+          <h1 id="currentViewTitle" class="view-title">Dashboard</h1>
+          <p id="currentViewSubtitle" class="view-subtitle">Learn Smarter with your AI-Powered Study Companion</p>
+        </div>
+        <div class="top-bar-right">
+          <div id="aiStatusPill" class="status-pill status-pill-active" title="System Connection Status">
+            <span class="status-indicator-dot"></span>
+            <span id="aiStatusLabel">Checking AI...</span>
+          </div>
+        </div>
+      </header>
+
+      <!-- Scrollable Main View Container -->
+      <div class="view-content-area">
+
+        <!-- ============================================== -->
+        <!-- VIEW: DASHBOARD -->
+        <!-- ============================================== -->
+        <section id="view-dashboard" class="content-view active">
+          <!-- Hero Banner -->
+          <div class="dashboard-hero">
+            <div class="hero-content">
+              <span class="badge-accent">Intelligent Learning Ecosystem</span>
+              <h2 class="hero-heading">Learn Smarter with EduGenie</h2>
+              <p class="hero-description">Your AI-powered learning companion for understanding difficult concepts, practicing interactive quizzes, summarizing complex textbooks, and generating structured study paths.</p>
+              <div class="hero-buttons">
+                <button class="btn btn-primary" data-navigate="qa">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  Ask a Question
+                </button>
+                <button class="btn btn-outline" data-navigate="quiz">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                  Generate Quiz
+                </button>
+              </div>
+            </div>
+            <div class="hero-badge-art">
+              <div class="art-glow"></div>
+              <div class="art-icon">🎓</div>
+            </div>
+          </div>
+
+          <!-- Quick Action Cards Grid -->
+          <div class="section-heading-row">
+            <h3 class="section-title">Quick Actions</h3>
+            <span class="section-hint">Select a learning module to get started</span>
+          </div>
+          <div class="quick-actions-grid">
+            <div class="action-card" data-navigate="qa">
+              <div class="action-icon action-icon-blue">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              </div>
+              <h4 class="action-card-title">Ask Anything</h4>
+              <p class="action-card-desc">Ask academic questions and receive structured answers with simple explanations, key points, and examples.</p>
+              <div class="action-card-arrow">Start Q&A →</div>
+            </div>
+
+            <div class="action-card" data-navigate="explain">
+              <div class="action-icon action-icon-purple">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+              </div>
+              <h4 class="action-card-title">Explain a Concept</h4>
+              <p class="action-card-desc">Demystify complex topics by difficulty (beginner to advanced) and style (step-by-step or exam prep).</p>
+              <div class="action-card-arrow">Explore Concept →</div>
+            </div>
+
+            <div class="action-card" data-navigate="quiz">
+              <div class="action-icon action-icon-emerald">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+              </div>
+              <h4 class="action-card-title">Generate Quiz</h4>
+              <p class="action-card-desc">Test your mastery with tailored MCQs, instant evaluation, score breakdown, and pedagogical explanations.</p>
+              <div class="action-card-arrow">Take Quiz →</div>
+            </div>
+
+            <div class="action-card" data-navigate="summarize">
+              <div class="action-icon action-icon-amber">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+              </div>
+              <h4 class="action-card-title">Summarize Notes</h4>
+              <p class="action-card-desc">Condense long textbook chapters, articles, or lecture notes into high-yield summaries and glossaries.</p>
+              <div class="action-card-arrow">Summarize →</div>
+            </div>
+
+            <div class="action-card" data-navigate="learning">
+              <div class="action-icon action-icon-cyan">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+              </div>
+              <h4 class="action-card-title">Build Learning Path</h4>
+              <p class="action-card-desc">Generate a personalized 5-stage sequential roadmap with milestones, timeframes, and practice projects.</p>
+              <div class="action-card-arrow">Create Roadmap →</div>
+            </div>
+          </div>
+
+          <!-- Real Analytics & Activity Grid -->
+          <div class="dashboard-analytics-row">
+            <div class="card dashboard-stats-card">
+              <div class="card-header">
+                <h4 class="card-title">Learning Statistics</h4>
+                <button class="btn btn-sm btn-text" data-navigate="progress">View Details →</button>
+              </div>
+              <div class="metrics-mini-grid">
+                <div class="metric-mini-box">
+                  <span id="dashQuestionsCount" class="metric-num">0</span>
+                  <span class="metric-label">Questions Asked</span>
+                </div>
+                <div class="metric-mini-box">
+                  <span id="dashConceptsCount" class="metric-num">0</span>
+                  <span class="metric-label">Concepts Studied</span>
+                </div>
+                <div class="metric-mini-box">
+                  <span id="dashQuizzesCount" class="metric-num">0</span>
+                  <span class="metric-label">Quizzes Completed</span>
+                </div>
+                <div class="metric-mini-box">
+                  <span id="dashAccuracyRate" class="metric-num">0%</span>
+                  <span class="metric-label">Quiz Accuracy</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="card dashboard-recent-card">
+              <div class="card-header">
+                <h4 class="card-title">Recent Learning Activity</h4>
+                <button class="btn btn-sm btn-text" data-navigate="history">View History →</button>
+              </div>
+              <div id="dashRecentActivityContainer">
+                <!-- Populated dynamically or empty state -->
+                <div class="empty-state-mini">
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <p class="empty-text">No learning activity yet.</p>
+                  <span class="empty-subtext">Start your first learning session above.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VIEW: ASK QUESTION -->
+        <!-- ============================================== -->
+        <section id="view-qa" class="content-view">
+          <div class="module-layout">
+            <div class="module-input-pane">
+              <div class="card">
+                <div class="card-header">
+                  <div>
+                    <h3 class="card-title">Ask Question</h3>
+                    <p class="card-desc">Enter any academic question to receive a student-friendly, structured answer.</p>
+                  </div>
+                </div>
+
+                <form id="qaForm" class="form-vertical">
+                  <div class="form-group">
+                    <label for="qaQuestionInput" class="form-label">Your Question <span class="required-star">*</span></label>
+                    <textarea id="qaQuestionInput" class="form-textarea" rows="4" placeholder="e.g., What is machine learning and how does supervised learning differ from unsupervised learning?" required></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="qaContextInput" class="form-label">Subject or Academic Context <span class="optional-tag">(Optional)</span></label>
+                    <input type="text" id="qaContextInput" class="form-input" placeholder="e.g., Computer Science, Class 12 Physics, Engineering">
+                  </div>
+
+                  <div class="quick-chips-wrap">
+                    <span class="chips-label">Try asking:</span>
+                    <button type="button" class="chip-btn" data-fill="What is Artificial Intelligence?">What is AI?</button>
+                    <button type="button" class="chip-btn" data-fill="How does the TCP/IP three-way handshake work?">TCP/IP Handshake</button>
+                    <button type="button" class="chip-btn" data-fill="What is the difference between SQL and NoSQL databases?">SQL vs NoSQL</button>
+                    <button type="button" class="chip-btn" data-fill="Explain the law of conservation of energy with practical examples.">Conservation of Energy</button>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="submit" id="qaSubmitBtn" class="btn btn-primary">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                      Ask EduGenie
+                    </button>
+                    <button type="button" id="qaClearBtn" class="btn btn-secondary">Clear</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="module-output-pane">
+              <!-- Loading State -->
+              <div id="qaLoadingState" class="state-container loading-state hidden">
+                <div class="spinner-ring"></div>
+                <h4 class="state-title">EduGenie is thinking...</h4>
+                <p class="state-desc">Analyzing your question and formulating a pedagogical answer.</p>
+              </div>
+
+              <!-- Empty State -->
+              <div id="qaEmptyState" class="state-container empty-state">
+                <div class="empty-icon-box">💬</div>
+                <h4 class="state-title">No Answer Generated Yet</h4>
+                <p class="state-desc">Type your question on the left and submit to view structured insights.</p>
+              </div>
+
+              <!-- Result Card -->
+              <div id="qaResultCard" class="card result-card hidden">
+                <div class="card-header">
+                  <div class="result-badge-wrap">
+                    <span class="badge badge-primary">Q&A Solution</span>
+                    <span id="qaModelUsedBadge" class="badge badge-neutral">Gemini AI</span>
+                  </div>
+                  <div class="result-actions">
+                    <button id="qaCopyBtn" class="icon-btn-sm" title="Copy solution to clipboard">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    </button>
+                    <button id="qaRegenerateBtn" class="icon-btn-sm" title="Regenerate answer">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="result-body">
+                  <div class="qa-section-block">
+                    <h4 class="qa-section-label">Answer</h4>
+                    <p id="qaAnswerText" class="qa-section-content"></p>
+                  </div>
+
+                  <div class="qa-section-block">
+                    <h4 class="qa-section-label">Simple Explanation</h4>
+                    <p id="qaSimpleExplanationText" class="qa-section-content text-callout"></p>
+                  </div>
+
+                  <div class="qa-section-block">
+                    <h4 class="qa-section-label">Key Points</h4>
+                    <ul id="qaKeyPointsList" class="styled-bullet-list"></ul>
+                  </div>
+
+                  <div id="qaExampleWrapper" class="qa-section-block">
+                    <h4 class="qa-section-label">Example / Illustration</h4>
+                    <div id="qaExampleBox" class="code-or-example-box"></div>
+                  </div>
+
+                  <!-- Follow-up Question Input -->
+                  <div class="follow-up-bar">
+                    <input type="text" id="qaFollowUpInput" class="form-input" placeholder="Ask a follow-up doubt on this answer...">
+                    <button type="button" id="qaFollowUpBtn" class="btn btn-sm btn-primary">Send</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VIEW: EXPLAIN CONCEPT -->
+        <!-- ============================================== -->
+        <section id="view-explain" class="content-view">
+          <div class="module-layout">
+            <div class="module-input-pane">
+              <div class="card">
+                <div class="card-header">
+                  <div>
+                    <h3 class="card-title">Explain Concept</h3>
+                    <p class="card-desc">Break down difficult academic concepts with custom depth and pedagogical style.</p>
+                  </div>
+                </div>
+
+                <form id="explainForm" class="form-vertical">
+                  <div class="form-group">
+                    <label for="explainConceptInput" class="form-label">Concept or Topic <span class="required-star">*</span></label>
+                    <input type="text" id="explainConceptInput" class="form-input" placeholder="e.g., Neural Networks, Recursion, Photosynthesis" required>
+                  </div>
+
+                  <div class="form-row-2">
+                    <div class="form-group">
+                      <label for="explainDifficultySelect" class="form-label">Difficulty Level</label>
+                      <select id="explainDifficultySelect" class="form-select">
+                        <option value="beginner">Beginner (Everyday analogies)</option>
+                        <option value="intermediate" selected>Intermediate (Balanced)</option>
+                        <option value="advanced">Advanced (Deep technical)</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="explainStyleSelect" class="form-label">Explanation Style</label>
+                      <select id="explainStyleSelect" class="form-select">
+                        <option value="simple" selected>Simple Explanation</option>
+                        <option value="step_by_step">Step-by-Step</option>
+                        <option value="with_example">With Real Example</option>
+                        <option value="exam_prep">Exam Preparation</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="quick-chips-wrap">
+                    <span class="chips-label">Try explaining:</span>
+                    <button type="button" class="chip-btn" data-fill="Neural Networks">Neural Networks</button>
+                    <button type="button" class="chip-btn" data-fill="Quantum Entanglement">Quantum Entanglement</button>
+                    <button type="button" class="chip-btn" data-fill="Dynamic Programming">Dynamic Programming</button>
+                    <button type="button" class="chip-btn" data-fill="Blockchain Consensus">Blockchain</button>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="submit" id="explainSubmitBtn" class="btn btn-primary">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                      Explain Concept
+                    </button>
+                    <button type="button" id="explainClearBtn" class="btn btn-secondary">Clear</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="module-output-pane">
+              <!-- Loading State -->
+              <div id="explainLoadingState" class="state-container loading-state hidden">
+                <div class="spinner-ring"></div>
+                <h4 class="state-title">Preparing your explanation...</h4>
+                <p class="state-desc">Structuring foundational mechanics, analogies, and key takeaways.</p>
+              </div>
+
+              <!-- Empty State -->
+              <div id="explainEmptyState" class="state-container empty-state">
+                <div class="empty-icon-box">💡</div>
+                <h4 class="state-title">No Concept Explained Yet</h4>
+                <p class="state-desc">Choose a topic and style to generate a comprehensive breakdown.</p>
+              </div>
+
+              <!-- Result Card -->
+              <div id="explainResultCard" class="card result-card hidden">
+                <div class="card-header">
+                  <div class="result-badge-wrap">
+                    <span id="explainConceptBadge" class="badge badge-accent">Concept</span>
+                    <span id="explainDifficultyBadge" class="badge badge-primary">Intermediate</span>
+                    <span id="explainStyleBadge" class="badge badge-neutral">Step-by-Step</span>
+                  </div>
+                  <div class="result-actions">
+                    <button id="explainCopyBtn" class="icon-btn-sm" title="Copy explanation">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    </button>
+                    <button id="explainRegenerateBtn" class="icon-btn-sm" title="Regenerate">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="result-body">
+                  <div class="concept-breakdown-flow">
+                    <!-- Stage 1: Simple Explanation -->
+                    <div class="flow-block">
+                      <div class="flow-step-pill">1</div>
+                      <div class="flow-step-body">
+                        <h4 class="flow-step-title">Simple Overview</h4>
+                        <p id="explainSimpleText" class="flow-step-desc"></p>
+                      </div>
+                    </div>
+
+                    <!-- Stage 2: How It Works -->
+                    <div class="flow-block">
+                      <div class="flow-step-pill">2</div>
+                      <div class="flow-step-body">
+                        <h4 class="flow-step-title">How It Works</h4>
+                        <p id="explainHowText" class="flow-step-desc"></p>
+                      </div>
+                    </div>
+
+                    <!-- Stage 3: Concrete Example -->
+                    <div class="flow-block">
+                      <div class="flow-step-pill">3</div>
+                      <div class="flow-step-body">
+                        <h4 class="flow-step-title">Practical Example & Analogy</h4>
+                        <div id="explainExampleBox" class="code-or-example-box"></div>
+                      </div>
+                    </div>
+
+                    <!-- Stage 4: Key Points -->
+                    <div class="flow-block">
+                      <div class="flow-step-pill">4</div>
+                      <div class="flow-step-body">
+                        <h4 class="flow-step-title">Key Points & Principles</h4>
+                        <ul id="explainKeyPointsList" class="styled-bullet-list"></ul>
+                      </div>
+                    </div>
+
+                    <!-- Stage 5: Exam Tips (Optional) -->
+                    <div id="explainExamTipsWrapper" class="flow-block">
+                      <div class="flow-step-pill">★</div>
+                      <div class="flow-step-body">
+                        <h4 class="flow-step-title">Exam & Interview Tips</h4>
+                        <p id="explainExamTipsText" class="flow-step-desc exam-tip-highlight"></p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VIEW: QUIZ GENERATOR -->
+        <!-- ============================================== -->
+        <section id="view-quiz" class="content-view">
+          <div class="module-layout">
+            
+            <!-- Setup & Config Pane -->
+            <div id="quizSetupPane" class="module-input-pane">
+              <div class="card">
+                <div class="card-header">
+                  <div>
+                    <h3 class="card-title">Quiz Generator</h3>
+                    <p class="card-desc">Generate rigorous, pedagogical MCQs to evaluate your conceptual understanding.</p>
+                  </div>
+                </div>
+
+                <form id="quizGenForm" class="form-vertical">
+                  <div class="form-group">
+                    <label for="quizTopicInput" class="form-label">Quiz Topic <span class="required-star">*</span></label>
+                    <input type="text" id="quizTopicInput" class="form-input" placeholder="e.g., Machine Learning, Operating Systems, Cell Biology" required>
+                  </div>
+
+                  <div class="form-row-2">
+                    <div class="form-group">
+                      <label for="quizNumSelect" class="form-label">Number of Questions</label>
+                      <select id="quizNumSelect" class="form-select">
+                        <option value="3">3 Questions (Quick check)</option>
+                        <option value="5" selected>5 Questions (Standard)</option>
+                        <option value="10">10 Questions (Comprehensive)</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="quizDifficultySelect" class="form-label">Difficulty</label>
+                      <select id="quizDifficultySelect" class="form-select">
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate" selected>Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="quizPassageInput" class="form-label">Optional Study Text or Notes</label>
+                    <textarea id="quizPassageInput" class="form-textarea" rows="3" placeholder="Paste study notes or an article paragraph if you want the quiz based strictly on that text."></textarea>
+                  </div>
+
+                  <div class="quick-chips-wrap">
+                    <span class="chips-label">Demo topics:</span>
+                    <button type="button" class="chip-btn" data-fill="Machine Learning">Machine Learning</button>
+                    <button type="button" class="chip-btn" data-fill="Operating Systems">Operating Systems</button>
+                    <button type="button" class="chip-btn" data-fill="Data Structures & Algorithms">Data Structures</button>
+                    <button type="button" class="chip-btn" data-fill="Database Management Systems">DBMS</button>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="submit" id="quizGenSubmitBtn" class="btn btn-primary">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                      Generate Quiz
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Quiz Interactive View Area -->
+            <div id="quizDisplayPane" class="module-output-pane">
+              
+              <!-- Loading State -->
+              <div id="quizLoadingState" class="state-container loading-state hidden">
+                <div class="spinner-ring"></div>
+                <h4 class="state-title">Generating your quiz...</h4>
+                <p class="state-desc">Synthesizing verified multiple choice questions with pedagogical distractors.</p>
+              </div>
+
+              <!-- Empty State -->
+              <div id="quizEmptyState" class="state-container empty-state">
+                <div class="empty-icon-box">📝</div>
+                <h4 class="state-title">No Active Quiz</h4>
+                <p class="state-desc">Configure your topic on the left to start an interactive assessment session.</p>
+              </div>
+
+              <!-- Interactive Quiz Playing Card -->
+              <div id="quizSessionCard" class="card result-card hidden">
+                <div class="card-header quiz-session-header">
+                  <div>
+                    <span id="quizTopicBadge" class="badge badge-primary">Topic</span>
+                    <span id="quizDiffBadge" class="badge badge-neutral">Intermediate</span>
+                  </div>
+                  <div class="quiz-timer-counter">
+                    <span id="quizProgressText">Question 1 of 5</span>
+                  </div>
+                </div>
+
+                <div class="quiz-progress-bar-track">
+                  <div id="quizProgressBarFill" class="quiz-progress-bar-fill" style="width: 20%;"></div>
+                </div>
+
+                <!-- Single Active Question Card -->
+                <div class="quiz-question-box">
+                  <span id="quizQuestionNumberTag" class="question-number-tag">Question 1</span>
+                  <h3 id="quizQuestionText" class="active-question-title">Question prompt here</h3>
+
+                  <!-- Options List -->
+                  <div id="quizOptionsContainer" class="quiz-options-grid">
+                    <!-- Dynamic Option Buttons -->
+                  </div>
+                </div>
+
+                <!-- Navigation between questions -->
+                <div class="quiz-nav-footer">
+                  <button type="button" id="quizPrevBtn" class="btn btn-secondary" disabled>← Previous</button>
+                  <div id="quizDotsTrack" class="quiz-dots-track"></div>
+                  <button type="button" id="quizNextBtn" class="btn btn-primary">Next →</button>
+                  <button type="button" id="quizSubmitBtn" class="btn btn-success hidden">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                    Submit Quiz
+                  </button>
+                </div>
+              </div>
+
+              <!-- Quiz Results & Score Screen -->
+              <div id="quizResultsCard" class="card result-card hidden">
+                <div class="card-header">
+                  <h3 class="card-title">Quiz Completed</h3>
+                  <span id="quizScoreBadge" class="badge badge-accent">Accuracy: 80%</span>
+                </div>
+
+                <div class="result-body">
+                  <!-- Score Banner -->
+                  <div class="quiz-score-banner">
+                    <div class="score-circle">
+                      <span id="quizFinalScoreNum" class="score-circle-num">4/5</span>
+                      <span class="score-circle-label">Score</span>
+                    </div>
+                    <div class="score-details-meta">
+                      <h4 id="quizFeedbackTitle" class="score-feedback-heading">Great Job!</h4>
+                      <p id="quizFeedbackBody" class="score-feedback-text">You have demonstrated strong conceptual understanding.</p>
+                      <div class="score-breakdown-pills">
+                        <span class="pill pill-correct">Correct ✓: <strong id="quizCorrectCount">4</strong></span>
+                        <span class="pill pill-incorrect">Incorrect ✕: <strong id="quizIncorrectCount">1</strong></span>
+                        <span class="pill pill-neutral">Accuracy: <strong id="quizAccuracyPct">80%</strong></span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Question-by-Question Review -->
+                  <div class="quiz-review-section">
+                    <h4 class="review-title">Review Answers & Explanations</h4>
+                    <div id="quizReviewList" class="quiz-review-list">
+                      <!-- Rendered dynamically -->
+                    </div>
+                  </div>
+
+                  <!-- Post-Quiz Actions -->
+                  <div class="quiz-post-actions">
+                    <button type="button" id="quizRetryBtn" class="btn btn-primary">Retry Quiz</button>
+                    <button type="button" id="quizNewBtn" class="btn btn-outline">New Quiz</button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VIEW: SUMMARIZE -->
+        <!-- ============================================== -->
+        <section id="view-summarize" class="content-view">
+          <div class="module-layout">
+            <div class="module-input-pane">
+              <div class="card">
+                <div class="card-header">
+                  <div>
+                    <h3 class="card-title">Summarize Notes</h3>
+                    <p class="card-desc">Paste textbook chapters, notes, or articles to synthesize high-retention study summaries.</p>
+                  </div>
+                </div>
+
+                <form id="summaryForm" class="form-vertical">
+                  <div class="form-group">
+                    <div class="label-with-meta">
+                      <label for="summaryContentInput" class="form-label">Study Material <span class="required-star">*</span></label>
+                      <span id="summaryCharCounter" class="char-counter">0 chars</span>
+                    </div>
+                    <textarea id="summaryContentInput" class="form-textarea" rows="8" placeholder="Paste your study material, lecture notes, textbook excerpt, or articles here..." required></textarea>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label">Summary Length</label>
+                    <div class="radio-pill-group">
+                      <label class="radio-pill">
+                        <input type="radio" name="summaryLength" value="short">
+                        <span>Short (Quick)</span>
+                      </label>
+                      <label class="radio-pill">
+                        <input type="radio" name="summaryLength" value="medium" checked>
+                        <span>Medium (Balanced)</span>
+                      </label>
+                      <label class="radio-pill">
+                        <input type="radio" name="summaryLength" value="detailed">
+                        <span>Detailed (In-depth)</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <div class="quick-chips-wrap">
+                    <span class="chips-label">Sample material:</span>
+                    <button type="button" class="chip-btn" id="loadSampleNotesBtn">Load OS Notes Sample</button>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="submit" id="summarySubmitBtn" class="btn btn-primary">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="21" y1="10" x2="3" y2="10"/><line x1="21" y1="6" x2="3" y2="6"/><line x1="21" y1="14" x2="3" y2="14"/><line x1="21" y1="18" x2="3" y2="18"/></svg>
+                      Summarize Material
+                    </button>
+                    <button type="button" id="summaryClearBtn" class="btn btn-secondary">Clear</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="module-output-pane">
+              <!-- Loading State -->
+              <div id="summaryLoadingState" class="state-container loading-state hidden">
+                <div class="spinner-ring"></div>
+                <h4 class="state-title">Distilling study material...</h4>
+                <p class="state-desc">Synthesizing core takeaways, important definitions, and revision checklists.</p>
+              </div>
+
+              <!-- Empty State -->
+              <div id="summaryEmptyState" class="state-container empty-state">
+                <div class="empty-icon-box">📄</div>
+                <h4 class="state-title">No Summary Generated Yet</h4>
+                <p class="state-desc">Paste notes or text on the left and select your preferred summary length.</p>
+              </div>
+
+              <!-- Result Card -->
+              <div id="summaryResultCard" class="card result-card hidden">
+                <div class="card-header">
+                  <div class="result-badge-wrap">
+                    <span id="summaryLengthBadge" class="badge badge-primary">Medium Summary</span>
+                    <span id="summaryOriginalLengthBadge" class="badge badge-neutral">0 chars</span>
+                  </div>
+                  <div class="result-actions">
+                    <button id="summaryCopyBtn" class="icon-btn-sm" title="Copy summary text">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    </button>
+                    <button id="summaryDownloadBtn" class="icon-btn-sm" title="Download as TXT file">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="result-body">
+                  <div class="summary-section-block">
+                    <h4 class="summary-section-title">Summary</h4>
+                    <p id="summaryMainText" class="summary-paragraph"></p>
+                  </div>
+
+                  <div class="summary-section-block">
+                    <h4 class="summary-section-title">Key Points</h4>
+                    <ul id="summaryKeyPointsList" class="styled-bullet-list"></ul>
+                  </div>
+
+                  <div class="summary-section-block">
+                    <h4 class="summary-section-title">Important Terms & Definitions</h4>
+                    <div id="summaryTermsGrid" class="terms-grid">
+                      <!-- Rendered dynamically -->
+                    </div>
+                  </div>
+
+                  <div class="summary-section-block">
+                    <h4 class="summary-section-title">Quick Revision Checklist</h4>
+                    <ul id="summaryQuickRevisionList" class="checklist-items"></ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VIEW: LEARNING PATH -->
+        <!-- ============================================== -->
+        <section id="view-learning" class="content-view">
+          <div class="module-layout">
+            <div class="module-input-pane">
+              <div class="card">
+                <div class="card-header">
+                  <div>
+                    <h3 class="card-title">Build Learning Path</h3>
+                    <p class="card-desc">Construct a personalized, visual beginner-to-advanced curriculum roadmap.</p>
+                  </div>
+                </div>
+
+                <form id="learningForm" class="form-vertical">
+                  <div class="form-group">
+                    <label for="learningTopicInput" class="form-label">Subject or Skill <span class="required-star">*</span></label>
+                    <input type="text" id="learningTopicInput" class="form-input" placeholder="e.g., SQL, Python, Cloud Computing, Full-Stack Web" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="learningLevelSelect" class="form-label">Current Experience Level</label>
+                    <select id="learningLevelSelect" class="form-select">
+                      <option value="beginner" selected>Beginner (Little or no knowledge)</option>
+                      <option value="intermediate">Intermediate (Knows basics, needs depth)</option>
+                      <option value="advanced">Advanced (Wants mastery & architecture)</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="learningTimeInput" class="form-label">Available Study Time</label>
+                    <input type="text" id="learningTimeInput" class="form-input" value="1 hour/day" placeholder="e.g., 1 hour/day, 5 hours/week">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="learningGoalInput" class="form-label">Target Learning Goal</label>
+                    <input type="text" id="learningGoalInput" class="form-input" value="Become interview-ready" placeholder="e.g., Become interview-ready, Build capstone project">
+                  </div>
+
+                  <div class="quick-chips-wrap">
+                    <span class="chips-label">Popular paths:</span>
+                    <button type="button" class="chip-btn" data-topic="SQL" data-goal="Master queries for Data Science">SQL for Data Science</button>
+                    <button type="button" class="chip-btn" data-topic="Python" data-goal="AI and Machine Learning Engineering">Python for AI/ML</button>
+                    <button type="button" class="chip-btn" data-topic="FastAPI & Backend" data-goal="Production Microservices">FastAPI Backend</button>
+                  </div>
+
+                  <div class="form-actions">
+                    <button type="submit" id="learningSubmitBtn" class="btn btn-primary">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 14 14"/></svg>
+                      Generate Roadmap
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <div class="module-output-pane">
+              <!-- Loading State -->
+              <div id="learningLoadingState" class="state-container loading-state hidden">
+                <div class="spinner-ring"></div>
+                <h4 class="state-title">Creating your learning path...</h4>
+                <p class="state-desc">Organizing curriculum stages, prerequisites, practical drills, and milestones.</p>
+              </div>
+
+              <!-- Empty State -->
+              <div id="learningEmptyState" class="state-container empty-state">
+                <div class="empty-icon-box">🗺️</div>
+                <h4 class="state-title">No Learning Roadmap Generated</h4>
+                <p class="state-desc">Specify your target topic and goal on the left to map your personalized study journey.</p>
+              </div>
+
+              <!-- Result Card -->
+              <div id="learningResultCard" class="card result-card hidden">
+                <div class="card-header">
+                  <div class="result-badge-wrap">
+                    <span id="learningTopicBadge" class="badge badge-accent">Roadmap</span>
+                    <span id="learningLevelBadge" class="badge badge-primary">Beginner</span>
+                    <span id="learningTimeBadge" class="badge badge-neutral">1 hr/day</span>
+                  </div>
+                  <div class="result-actions">
+                    <button id="learningCopyBtn" class="icon-btn-sm" title="Copy roadmap outline">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                    </button>
+                  </div>
+                </div>
+
+                <div class="result-body">
+                  <div class="roadmap-overview-banner">
+                    <h4 class="roadmap-overview-title">Curriculum Blueprint</h4>
+                    <p id="learningOverviewText" class="roadmap-overview-text"></p>
+                  </div>
+
+                  <!-- Visual Sequential Roadmap -->
+                  <div id="roadmapTimelineContainer" class="roadmap-timeline">
+                    <!-- Rendered dynamically -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VIEW: HISTORY -->
+        <!-- ============================================== -->
+        <section id="view-history" class="content-view">
+          <div class="card">
+            <div class="card-header history-header-wrap">
+              <div>
+                <h3 class="card-title">Activity History</h3>
+                <p class="card-desc">Review and reopen all previously generated questions, quizzes, explanations, and roadmaps.</p>
+              </div>
+              <button id="clearAllHistoryBtn" class="btn btn-sm btn-danger">Clear History</button>
+            </div>
+
+            <!-- Filters and Search Bar -->
+            <div class="history-controls-bar">
+              <div class="history-filter-pills">
+                <button class="pill-filter active" data-filter="all">All</button>
+                <button class="pill-filter" data-filter="qa">Questions</button>
+                <button class="pill-filter" data-filter="explain">Explanations</button>
+                <button class="pill-filter" data-filter="quiz">Quizzes</button>
+                <button class="pill-filter" data-filter="summary">Summaries</button>
+                <button class="pill-filter" data-filter="learning_path">Roadmaps</button>
+              </div>
+
+              <div class="history-search-input-wrap">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="historySearchInput" class="form-input" placeholder="Search history records...">
+              </div>
+            </div>
+
+            <!-- History List Container -->
+            <div id="historyListContainer" class="history-list-wrap">
+              <!-- Rendered dynamically -->
+            </div>
+          </div>
+        </section>
+
+        <!-- ============================================== -->
+        <!-- VIEW: PROGRESS & ANALYTICS -->
+        <!-- ============================================== -->
+        <section id="view-progress" class="content-view">
+          <div class="progress-view-layout">
+            <!-- Metric KPI Row -->
+            <div class="analytics-kpi-grid">
+              <div class="kpi-card">
+                <div class="kpi-icon kpi-icon-blue">💬</div>
+                <div class="kpi-details">
+                  <span id="metricQuestionsCount" class="kpi-num">0</span>
+                  <span class="kpi-label">Questions Asked</span>
+                </div>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-icon kpi-icon-purple">💡</div>
+                <div class="kpi-details">
+                  <span id="metricConceptsCount" class="kpi-num">0</span>
+                  <span class="kpi-label">Concepts Explored</span>
+                </div>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-icon kpi-icon-emerald">📝</div>
+                <div class="kpi-details">
+                  <span id="metricQuizzesCount" class="kpi-num">0</span>
+                  <span class="kpi-label">Quizzes Completed</span>
+                </div>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-icon kpi-icon-amber">🎯</div>
+                <div class="kpi-details">
+                  <span id="metricAccuracyPct" class="kpi-num">0%</span>
+                  <span class="kpi-label">Average Accuracy</span>
+                </div>
+              </div>
+
+              <div class="kpi-card">
+                <div class="kpi-icon kpi-icon-cyan">🗺️</div>
+                <div class="kpi-details">
+                  <span id="metricRoadmapsCount" class="kpi-num">0</span>
+                  <span class="kpi-label">Roadmaps Built</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Charts & Real Timeline Grid -->
+            <div class="analytics-charts-grid">
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Weekly Learning Activity</h4>
+                  <span class="badge badge-neutral">Last 7 Days</span>
+                </div>
+                <p class="chart-subtitle">Daily count of questions, quizzes, and study sessions.</p>
+                <div id="weeklyActivityBarChart" class="css-barchart-container">
+                  <!-- Rendered dynamically -->
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header">
+                  <h4 class="card-title">Study Mastery Insights</h4>
+                  <span class="badge badge-accent">Pedagogical Review</span>
+                </div>
+                <div class="mastery-summary-box">
+                  <div class="mastery-status-row">
+                    <span class="mastery-label">Active Learning Status:</span>
+                    <strong id="masteryStatusTag" class="text-accent">Ready to Start</strong>
+                  </div>
+                  <p class="mastery-tip-text">Regular practice with EduGenie quizzes and concept explanations leads to a measurable 35% boost in conceptual retention. Use the Quiz Generator after every topic you explore!</p>
+                  <div class="action-cta-wrap">
+                    <button class="btn btn-sm btn-primary" data-navigate="quiz">Take a Quiz Now</button>
+                    <button class="btn btn-sm btn-outline" data-navigate="qa">Ask a Doubt</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL: SETTINGS & SYSTEM STATUS -->
+  <!-- ============================================== -->
+  <div id="settingsModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="settingsModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="settingsModalTitle" class="modal-title">Settings & System Health</h3>
+        <button id="closeSettingsModalBtn" class="icon-btn" aria-label="Close settings">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+
+      <div class="modal-body">
+        <!-- AI Engine Status Banner -->
+        <div id="settingsAiStatusBanner" class="system-status-box">
+          <div class="system-status-dot"></div>
+          <div class="system-status-info">
+            <h4 id="settingsStatusHeading" class="status-heading">Checking System...</h4>
+            <p id="settingsStatusDesc" class="status-desc">Verifying connection to Google Gemini API.</p>
+          </div>
+        </div>
+
+        <form id="settingsForm" class="form-vertical">
+          <div class="form-group">
+            <label for="settingsApiKeyInput" class="form-label">Google Gemini API Key</label>
+            <div class="input-with-action">
+              <input type="password" id="settingsApiKeyInput" class="form-input" placeholder="Enter AI Studio API Key (AIzaSy...)">
+              <button type="button" id="toggleApiKeyVisibilityBtn" class="btn btn-sm btn-secondary" aria-label="Show or hide API key">Show</button>
+            </div>
+            <span class="form-hint">Obtain a free API key at <a href="https://aistudio.google.com/" target="_blank" rel="noopener">Google AI Studio</a>. Keys are stored safely in <code>.env</code> on your local server.</span>
+          </div>
+
+          <div class="form-group">
+            <label for="settingsModelSelect" class="form-label">AI Model</label>
+            <select id="settingsModelSelect" class="form-select">
+              <option value="gemini-3.5-flash" selected>gemini-3.5-flash (Recommended & High Speed)</option>
+              <option value="gemini-3.5-flash-lite">gemini-3.5-flash-lite (Instant Responses)</option>
+              <option value="gemini-3.6-flash">gemini-3.6-flash (Advanced Reasoning)</option>
+              <option value="gemini-3.1-flash-lite">gemini-3.1-flash-lite (Lightweight)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Visual Theme</label>
+            <div class="radio-pill-group">
+              <label class="radio-pill">
+                <input type="radio" name="appTheme" value="system" checked>
+                <span>System</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="appTheme" value="light">
+                <span>Light</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="appTheme" value="dark">
+                <span>Dark</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="submit" id="saveSettingsBtn" class="btn btn-primary">Save Configuration</button>
+            <button type="button" id="cancelSettingsBtn" class="btn btn-secondary">Close</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================== -->
+  <!-- MODAL: HISTORY ITEM DETAIL VIEW -->
+  <!-- ============================================== -->
+  <div id="historyDetailModal" class="modal-backdrop hidden" role="dialog" aria-modal="true" aria-labelledby="historyDetailTitle">
+    <div class="modal-card modal-card-lg">
+      <div class="modal-header">
+        <div>
+          <span id="historyDetailBadge" class="badge badge-primary">Q&A</span>
+          <h3 id="historyDetailTitle" class="modal-title">Activity Details</h3>
+        </div>
+        <button id="closeHistoryDetailModalBtn" class="icon-btn" aria-label="Close modal">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+      <div id="historyDetailBody" class="modal-body modal-scrollable">
+        <!-- Rendered dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="closeHistoryDetailBtn" class="btn btn-secondary">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <!-- Application Logic -->
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
