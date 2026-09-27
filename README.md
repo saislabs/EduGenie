@@ -405,16 +405,17 @@ Follow this sequential walkthrough to review EduGenie in action:
 
 ---
 
-## 🤝 Contributing
+## 👥 Contributors & Core Team
 
-Contributions are welcome! Please follow these steps:
+EduGenie is designed, architected, and maintained by the following core team members:
 
-1. **Fork** the repository.
-2. **Create** a feature branch: `git checkout -b feature/AmazingFeature`
-3. **Commit** your changes: `git commit -m 'Add AmazingFeature'`
-4. **Push** to the branch: `git push origin feature/AmazingFeature`
-5. **Open** a Pull Request.
-
+| Role | Name | Email | Primary Responsibilities |
+| :--- | :--- | :--- | :--- |
+| 👑 **Team Lead** | **Surya M** | [suryaaisolutions21@gmail.com](mailto:suryaaisolutions21@gmail.com) | System Architecture, Gemini AI Integration & Full-Stack Core Engineering |
+| 💻 **Member** | **Sathiriyan R** | [sathiriyanr54@gmail.com](mailto:sathiriyanr54@gmail.com) | Backend Domain Services, Quiz Logic & Evaluation Pipeline |
+| 🎨 **Member** | **Suparadeesh E** | [suparadeeshe@gmail.com](mailto:suparadeeshe@gmail.com) | UI/UX Design System, Responsive Views & Theme Orchestration |
+| 📊 **Member** | **Rahul E** | [rahulrahule11@gmail.com](mailto:rahulrahule11@gmail.com) | SQLite Storage Layer, Session Tracking & Analytics Aggregator |
+| 🧪 **Member** | **Sivasakthi S** | [vsachin6383@gmail.com](mailto:vsachin6383@gmail.com) | Test Automation (Pytest), Validation Layer & Quality Assurance |
 ---
 
 ## 📜 License
