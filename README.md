@@ -39,6 +39,7 @@
 - [Security & Anti-Cheating Design](#-security--anti-cheating-design)
 - [Roadmap & Future Enhancements](#-roadmap--future-enhancements)
 - [Contributing](#-contributing)
+- [Contributors & Core Team](#-contributors--core-team)
 - [License](#-license)
 
 ---
@@ -418,10 +419,24 @@ EduGenie is designed, architected, and maintained by the following core team mem
 | 🧪 **Member** | **Sivasakthi S** | [vsachin6383@gmail.com](mailto:vsachin6383@gmail.com) | Test Automation (Pytest), Validation Layer & Quality Assurance |
 ---
 
+## 👥 Contributors & Core Team
+
+EduGenie is designed, architected, and maintained by the following core team members:
+
+| Role | Name | Email | Primary Responsibilities |
+| :--- | :--- | :--- | :--- |
+| 👑 **Team Lead** | **Surya M** | [suryaaisolutions21@gmail.com](mailto:suryaaisolutions21@gmail.com) | System Architecture, Gemini AI Integration & Full-Stack Core Engineering |
+| 💻 **Member** | **Sathiriyan R** | [sathiriyanr54@gmail.com](mailto:sathiriyanr54@gmail.com) | Backend Domain Services, Quiz Logic & Evaluation Pipeline |
+| 🎨 **Member** | **Suparadeesh E** | [suparadeeshe@gmail.com](mailto:suparadeeshe@gmail.com) | UI/UX Design System, Responsive Views & Theme Orchestration |
+| 📊 **Member** | **Rahul E** | [rahulrahule11@gmail.com](mailto:rahulrahule11@gmail.com) | SQLite Storage Layer, Session Tracking & Analytics Aggregator |
+| 🧪 **Member** | **Sivasakthi S** | [vsachin6383@gmail.com](mailto:vsachin6383@gmail.com) | Test Automation (Pytest), Validation Layer & Quality Assurance |
+
+---
+
 ## 📜 License
 
 Distributed under the **MIT License**. See `LICENSE` for more information.
 
 <div align="center">
-  <sub>Built with ❤️ for learners, students, and educators worldwide.</sub>
+  <sub>Built with ❤️ by <b>Team NYZTRIX</b> for learners, students, and educators worldwide.</sub>
 </div>
