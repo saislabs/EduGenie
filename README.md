@@ -1,5 +1,4 @@
 # 🎓 EduGenie — AI-Powered Personalized Learning Assistant
-
 <div align="center">
 
 [![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB.svg?style=flat&logo=python&logoColor=white)](https://www.python.org/)
@@ -20,7 +19,7 @@
 [Testing](#-testing--quality-assurance)
 
 </div>
-
+website_link=https://edugenie-pvp1.onrender.com/
 ---
 
 ## 📖 Table of Contents
