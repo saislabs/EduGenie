@@ -418,17 +418,6 @@ EduGenie is designed, architected, and maintained by the following core team mem
 | 📊 **Member** | **Rahul E** | [rahulrahule11@gmail.com](mailto:rahulrahule11@gmail.com) | SQLite Storage Layer,Validation Layer & Quality Assurance, Session Tracking & Analytics Aggregator |
 ---
 
-## 👥 Contributors & Core Team
-
-EduGenie is designed, architected, and maintained by the following core team members:
-
-| Role | Name | Email | Primary Responsibilities |
-| :--- | :--- | :--- | :--- |
-| 👑 **Team Lead** | **Surya M** | [suryaaisolutions21@gmail.com](mailto:suryaaisolutions21@gmail.com) | System Architecture, Gemini AI Integration & Full-Stack Core Engineering |
-| 💻 **Member** | **Sathiriyan R** | [sathiriyanr54@gmail.com](mailto:sathiriyanr54@gmail.com) | Backend Domain Services,Test Automation (Pytest), Quiz Logic & Evaluation Pipeline |
-| 🎨 **Member** | **Suparadeesh E** | [suparadeeshe@gmail.com](mailto:suparadeeshe@gmail.com) | UI/UX Design System, Responsive Views & Theme Orchestration |
-| 📊 **Member** | **Rahul E** | [rahulrahule11@gmail.com](mailto:rahulrahule11@gmail.com) | SQLite Storage Layer,Validation Layer & Quality Assurance, Session Tracking & Analytics Aggregator |
----
 
 ## 📜 License
 
